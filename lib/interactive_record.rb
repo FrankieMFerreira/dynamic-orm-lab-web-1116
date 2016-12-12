@@ -56,11 +56,7 @@ class InteractiveRecord
 
   def self.find_by(options)
     sql = "SELECT * FROM #{self.table_name} WHERE #{options.keys[0].to_s} = ?"
-    if options[options.keys[0]].class == Fixnum
-      DB[:conn].execute(sql, options[options.keys[0]].to_i)
-    else
       DB[:conn].execute(sql, options[options.keys[0]])
-    end
   end
 
 end
